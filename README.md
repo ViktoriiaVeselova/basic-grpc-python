@@ -7,7 +7,7 @@ For more details, read the accompanying [blog post](https://engineering.semantic
 ## Quickstart
 
 ```shell
-git clone https://github.com/ramananbalakrishnan/basic-grpc-python
+git clone https://github.com/ViktoriiaVeselova/basic-grpc-python.git
 cd basic-grpc-python
 pip install -r requirements.txt
 python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ping.proto
