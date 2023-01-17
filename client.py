@@ -1,20 +1,21 @@
 import grpc
 
 # import the generated classes
-import calculator_pb2
-import calculator_pb2_grpc
+import ping_pb2
+import ping_pb2_grpc
+
 
 # open a gRPC channel
-channel = grpc.insecure_channel('localhost:50051')
+channel = grpc.insecure_channel('127.0.0.1:8081')
 
 # create a stub (client)
-stub = calculator_pb2_grpc.CalculatorStub(channel)
+stub = ping_pb2_grpc.PingServiceStub(channel)
 
 # create a valid request message
-number = calculator_pb2.Number(value=16)
+request = ping_pb2.PingRequest(message="Ping")
 
 # make the call
-response = stub.SquareRoot(number)
+response = stub.getResponse(request)
 
 # et voilà
-print(response.value)
+print(response.message)
